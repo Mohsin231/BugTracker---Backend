@@ -1,0 +1,4 @@
+-- settings.sql
+CREATE DATABASE bug;
+CREATE USER buguser WITH PASSWORD 'bug';
+GRANT ALL PRIVILEGES ON DATABASE bug TO buguser;

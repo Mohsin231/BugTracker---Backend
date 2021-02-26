@@ -15,7 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.contrib.auth import views as auth_views
+from django.conf.urls import include, url
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    url(r"^admin/", admin.site.urls),
+    url(r"", include("bug.urls")),
+    # url(r"^accounts/login/$", auth_views.LoginView, name="login"),
+    # url(r"^accounts/logout/$", auth_views.LogoutView, name="logout"),
 ]
+
+path('api-auth', include('rest_framework.urls', namespace='rest_framework'))
